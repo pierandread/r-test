@@ -5,7 +5,7 @@ import './movies.css'
 
 function Movies() {
 
-  //TODO: consider rejected promise for rendering
+  //TODO: consider rejected promise for rendering, try to not reload if coming back to the page
   useEffect(() => {
     getList('populares-en-taquilla').then(list=> setPopularesList(list));
     getList('estrenos-para-toda-la-familia').then(list=> setEstrenosFamiliaList(list));
@@ -23,21 +23,17 @@ function Movies() {
   const [perdisteList, setPerdisteList] = useState(null)
   const [xmenList, setXmenList] = useState(null)
   const [semanaList, setSemanaList] = useState(null)
-
-        {/*  */}
-
+  const [movingList, setMovingList] = useState(0)
 
   return (
     <div>
       <p>Populares en Taquilla:</p>
-      <button onClick={()=> console.log(popularesList.data.contents.data)}>left</button>
+      <button onClick={()=> movingList!==0 && setMovingList(movingList+310)}>left</button>
 
-      <div className='list'>
-        {popularesList? popularesList.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>)
-        : <p>Loading...</p>}
+      <div className='list' style={{"transform": `translateX(${movingList}px)`}}>
+        {popularesList? popularesList.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>) : <p>Loading...</p>}
       </div>
-      <button onClick={()=> console.log(popularesList.data.contents.data)}>right</button>
-
+      <button onClick={()=> setMovingList(movingList-310)}>right</button>
 
       <p>Estrenos para toda la familia:</p>
       {estrenosFamiliaList? <p>Check list</p> : <p>Loading...</p>}
