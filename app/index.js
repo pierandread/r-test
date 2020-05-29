@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import NavBar from './components/NavBar/NavBar'
+import NavBar from './components/NavBar/NavBar';
+import Movies from './components/Movies/Movies';
 import './index.css';
 
-class App extends React.Component{
-    render(){
-        return(
-          <div>
-            <NavBar />
-          </div>
-        )
-    }
+function App (){
+
+  return(
+    <div>
+      <NavBar />
+      <Movies />
+    </div>
+  )
+
 }
 
 ReactDOM.render(<App />, document.getElementById('app'))

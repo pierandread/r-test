@@ -2,9 +2,11 @@ import React from 'react';
 import './navbar.css';
 
 function NavBar() {
+
+
   return (
     <div>
-      <p className="test">Test NavBar</p>
+      <p className="test">Rakuten TV</p>
     </div>
   );
 }
