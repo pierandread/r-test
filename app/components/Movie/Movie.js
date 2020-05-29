@@ -1,12 +1,15 @@
 import React from 'react';
-import './movie.css'
+import { Link } from "react-router-dom";
+import './movie.css';
 
 function Movie({movie}) {
   console.log(movie)
   return (
     <div className='box'>
       <p>{movie.title}</p>
+      <Link to={"/movie/" + movie.id}>
       <img alt={movie.title} src={movie.images.artwork} className='img'/>
+      </Link>
     </div>
   )
 }

@@ -30,11 +30,14 @@ function Movies() {
   return (
     <div>
       <p>Populares en Taquilla:</p>
+      <button onClick={()=> console.log(popularesList.data.contents.data)}>left</button>
+
       <div className='list'>
-        <button onClick={()=> console.log(popularesList.data.contents.data)}>Checking</button>
         {popularesList? popularesList.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>)
         : <p>Loading...</p>}
       </div>
+      <button onClick={()=> console.log(popularesList.data.contents.data)}>right</button>
+
 
       <p>Estrenos para toda la familia:</p>
       {estrenosFamiliaList? <p>Check list</p> : <p>Loading...</p>}
