@@ -1,8 +1,11 @@
 import React, {useState, useEffect} from 'react';
-import {getList} from '../../services/api-calls'
+import {getList} from '../../services/api-calls';
+import Movie from '../Movie/Movie';
+import './movies.css'
 
 function Movies() {
 
+  //TODO: consider rejected promise for rendering
   useEffect(() => {
     getList('populares-en-taquilla').then(list=> setPopularesList(list));
     getList('estrenos-para-toda-la-familia').then(list=> setEstrenosFamiliaList(list));
@@ -21,12 +24,17 @@ function Movies() {
   const [xmenList, setXmenList] = useState(null)
   const [semanaList, setSemanaList] = useState(null)
 
+        {/*  */}
+
 
   return (
     <div>
       <p>Populares en Taquilla:</p>
-      <button onClick={()=> console.log(popularesList)}>Checking</button>
-      {popularesList? <p>Check list</p> : <p>Loading...</p>}
+      <div className='list'>
+        <button onClick={()=> console.log(popularesList.data.contents.data)}>Checking</button>
+        {popularesList? popularesList.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>)
+        : <p>Loading...</p>}
+      </div>
 
       <p>Estrenos para toda la familia:</p>
       {estrenosFamiliaList? <p>Check list</p> : <p>Loading...</p>}
