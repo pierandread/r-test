@@ -10,7 +10,8 @@ import './index.css';
 function App (){
 
   return(
-    <div>
+    // style for slidercss
+    <div style={{overflow: "hidden"}}>
       <NavBar />
       <Router>
         <Route exact path="/"
