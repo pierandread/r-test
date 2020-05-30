@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {getMovie} from '../../services/api-calls';
 import './movieDetails.css'
+import convertTime from '../../utilities/convertTime'
 
 
 function MovieDetails () {
@@ -23,7 +24,7 @@ function MovieDetails () {
   if(movie && !plot) {setPlot(movie.data.short_plot)};
   if(movie && !year) {setYear(movie.data.year)};
   if(movie && !duration) {setDuration(movie.data.duration); };
-  if(movie && !genres) {let genresArray=[]; let genresObj=movie.data.genres; for (let genre of genresObj){genresArray.push(genre.name)}; setGenres(genresArray); console.log("set G ",  movie.data.genres, " genresArray ", genresArray)};
+  if(movie && !genres) {let genresArray=[]; let genresObj=movie.data.genres; for (let genre of genresObj){genresArray.push(genre.name)}; setGenres(genresArray)};
   if(movie && !backgroundImage) {setBackgroundImage(movie.data.images.snapshot)};
 
   if (movie){
@@ -32,15 +33,23 @@ function MovieDetails () {
         <div className='banner' style={{backgroundImage:`url(${backgroundImage})`}}>
           <h1 className='title'>{title}</h1>
         </div>
-        <div>
-          <p>Year: {year}</p>
-          <p>Duration: {duration}</p>
-          {genres && <div><p>Genres: </p>{genres.map(((el, idx) => <p key={idx}>{el}</p>))}</div>}
+        <div className='infos-text-movie'>
+          <div className='short-info-collection'>
+            <div className='short-info'>
+              <p><span className='bold'>Year:</span> {year}</p>
+            </div>
+            <div className='short-info'>
+              <p><span className='bold'>Duration:</span> {convertTime(duration)}</p>
+            </div>
+            <div className='short-info'>
+              {genres && <p className='short-info'><span className='bold'>Genres:</span> {genres.map(((el, idx) => {if(idx===genres.length-1) return <span key={idx}> {el}. </span>; return <span key={idx}> {el}, </span>}))}</p>}
+            </div>
+          </div>
+          <div>
+            <h3>Plot:</h3>
+            <p>{plot}</p>
+          </div>      
         </div>
-        <div>
-          <p>{plot}</p>
-        </div>      
-        <button onClick={()=>{console.log(movie)}}> movie?</button>
       </div>
     )} else {
       return(

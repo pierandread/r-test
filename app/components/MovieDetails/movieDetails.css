@@ -14,9 +14,25 @@
   color: white;
   text-align: center;
   background-color: rgba(0, 0, 0, 0.4);
-  opacity: 0.5;
   border-radius: 10px;
   padding: 5px;
-
 }
 
+.infos-text-movie{
+  margin: 20px 5%;
+  padding: 20px;
+  box-shadow: 1px 1px 1px 1px;
+}
+
+.short-info{
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.short-info-collection{
+  font-size: small;
+}
+
+.bold{
+  font-weight: bold;
+}
