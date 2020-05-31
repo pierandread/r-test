@@ -1,0 +1,22 @@
+.list{
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.button-left{
+  opacity: 0;
+  position: relative; 
+  top: 200px;
+  z-index: 2;
+}
+
+.button-right{
+  opacity: 0;
+  position: relative; 
+  bottom: 200px;
+  z-index: 2;
+}
+
+.slider-div:hover > button, .button-left:hover, .button-right:hover {
+  opacity: 0.8;
+}
