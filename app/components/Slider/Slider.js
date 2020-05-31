@@ -15,7 +15,7 @@ function Slider ({list}) {
   const [listData, setListData] = useState(null);
 
   useEffect(() =>{
-    getList(list).then(list=> setListData(list)); console.log("api CALL PD")
+    getList(list).then(list=> setListData(list));
   },[])
 
   return(

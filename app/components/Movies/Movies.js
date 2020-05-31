@@ -10,7 +10,7 @@ function Movies() {
 
       <h3>Populares en Taquilla:</h3>
 
-      <Slider list={'populares-en-taquilla'} />
+        <Slider list={'populares-en-taquilla'} />
 
       <h3>Estrenos para toda la familia:</h3>
 
