@@ -8,7 +8,7 @@ function Slider ({list}) {
 
   //states to manager left and rigth stopping points for slider
   const [movingList, setMovingList] = useState(0);
-  const [screenWidth, setScreenWidth] = useState(window.innerWidth);
+  const [screenWidth, setScreenWidth] = useState(window.visualViewport.width || window.innerWidth);
   window.addEventListener("resize", function() {
     setScreenWidth(window.visualViewport.width || window.innerWidth);
   });
@@ -19,14 +19,16 @@ function Slider ({list}) {
     getList(list).then(list=> {console.log(list); setListData(list)});
   },[])
 
-  console.log(listData)
-
-  if (listData && ("errors" in listData)) {return(
+  if (listData && ("errors" in listData)) {
+    return(
     <div className="slider-div">
       <p>ERROR</p>
     </div>
-  )}
-  if (listData) {return(
+    )
+  };
+
+  if (listData) {
+    return(
     <div className="slider-div">
        {/* onClick: 280 from 250(width movie)+(10+10(paddings))+10(margin right) */}
       {/* <button className="button-left" onClick={()=> movingList!==0 && setMovingList(movingList+280)}>&#xf104;</button> */}
@@ -44,7 +46,9 @@ function Slider ({list}) {
       onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+30))) && setMovingList(movingList-280)}}
       ></i> 
     </div>
-  )};
+    )
+  };
+
   return (
     <div>
       <p>Loading...</p>
