@@ -10,12 +10,13 @@
   z-index: 2;
   border-radius: 15px;
   background-color: white;
+  left:10px;
 }
 
 .button-right{
   opacity: 0;
   position: relative; 
-  bottom: 200px;
+  bottom: 215px;
   z-index: 2;
   border-radius: 15px;
   background-color: white;

@@ -36,3 +36,27 @@
 .bold{
   font-weight: bold;
 }
+
+.button-trailer {
+	background-color:white;
+	border-radius:5px;
+	border:1px solid #566963;
+  display:inline-block;
+  cursor: pointer;
+	font-size:15px;
+	font-weight:bold;
+	padding:10px 10px;
+}
+
+.button-trailer:hover, .button-trailer:active  {
+	background:black;
+}
+
+.text-button-trailer{
+  text-decoration: none;
+  color:black;
+}
+
+.button-trailer:hover > .text-button-trailer{
+  color: white;
+}

@@ -40,7 +40,7 @@ function Slider ({list}) {
       {/* <button className="button-right" style={{left: (screenWidth -(Math.floor(screenWidth/100*10)+42))}} 
       onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+30))) && setMovingList(movingList-280)}}
       >right</button> */}
-      <i className='fas fa-arrow-alt-circle-right button-right' style={{fontSize :'35px', left: (screenWidth -(Math.floor(screenWidth/100*10)+35))}} 
+      <i className='fas fa-arrow-alt-circle-right button-right' style={{fontSize :'35px', left: (screenWidth -(Math.floor(screenWidth/100*10)+40))}} 
       onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+30))) && setMovingList(movingList-280)}}
       ></i> 
     </div>
