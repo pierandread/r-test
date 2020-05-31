@@ -14,6 +14,8 @@ function Movies() {
 
       <h3>Estrenos para toda la familia:</h3>
 
+        <Slider list={'estrenos-para-toda-la-familia'} />
+
       <h3>Estrenos imprescindibles en taquilla:</h3>
 
       <h3>Estrenos espanoles:</h3>
@@ -21,6 +23,10 @@ function Movies() {
       <h3>Si te perdiste:</h3>
 
       <h3>Especial X-men:</h3>
+
+      
+        <Slider list={'especial-x-men'} />
+
 
       <h3>Nuestras preferidas de la semana:</h3>
 

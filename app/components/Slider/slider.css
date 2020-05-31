@@ -8,6 +8,8 @@
   position: relative; 
   top: 200px;
   z-index: 2;
+  border-radius: 15px;
+  background-color: white;
 }
 
 .button-right{
@@ -15,8 +17,14 @@
   position: relative; 
   bottom: 200px;
   z-index: 2;
+  border-radius: 15px;
+  background-color: white;
 }
 
-.slider-div:hover > button, .button-left:hover, .button-right:hover {
-  opacity: 0.8;
+.slider-div:hover > i, .slider-div:active > i, .button-left:hover, .button-right:hover {
+  opacity: 1;
+}
+
+.button-left:hover, .button-right:hover {
+  cursor: pointer;
 }
