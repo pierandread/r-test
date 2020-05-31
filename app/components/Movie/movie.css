@@ -1,5 +1,5 @@
 .box{
-  width: 300px;
+  width: 250px;
   display: inline-block;
   margin-right: 10px;
   position: relative;
@@ -7,7 +7,7 @@
 }
 
 .img{
-  width: 300px;
+  width: 250px;
 }
 
 .box:hover{

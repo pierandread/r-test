@@ -11,7 +11,7 @@ function App (){
 
   return(
     // style for slidercss
-    <div style={{overflow: "hidden"}}>
+    <div>
       <NavBar />
       <Router>
         <Route exact path="/"

@@ -27,18 +27,17 @@ function Movies() {
   if(popularesList===null) {getList('populares-en-taquilla').then(list=> setPopularesList(list)); console.log("api CALL PD")};
 
   return (
-    <div>
-      <p>Populares en Taquilla:</p>
+    <div className='list-container' id='list-container'>
 
-      {/* left button 330 from 300+10+10 padding + 10 margin right  */}
-      <button onClick={()=> movingList!==0 && setMovingList(movingList+330)}>left</button>
+      <h3>Populares en Taquilla:</h3>
+
+      {/* left button 250 from 300+10+10 padding + 10 margin right  */}
+      <button onClick={()=> movingList!==0 && setMovingList(movingList+280)}>left</button>
       
-      <button onClick={()=> window.scroll({top: 0, left:200, behavior: 'smooth' }) }>left Scr</button>
-
       <div className='list' style={{"transform": `translateX(${movingList}px)`}}>
         {popularesList? popularesList.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>) : <p>Loading...</p>}
       </div>
-      <button onClick={()=> {(-movingList<(((popularesList.data.contents.data.length)*330)-(screenWidth+30))) && setMovingList(movingList-330)}}>right</button>
+      <button onClick={()=> {(-movingList<(((popularesList.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+20))) && setMovingList(movingList-280)}}>right</button>
 
       <p>Estrenos para toda la familia:</p>
       {estrenosFamiliaList? <p>Check list</p> : <p>Loading...</p>}

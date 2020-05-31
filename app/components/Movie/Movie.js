@@ -8,7 +8,7 @@ function Movie({movie}) {
       <Link to={"/movie/" + movie.id}>
         <img alt={movie.title} src={movie.images.artwork} className='img'/>
       </Link>
-      </div>
+    </div>
   )
 }
 

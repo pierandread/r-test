@@ -6,8 +6,8 @@ function NavBar() {
 
 
   return (
-    <div>
-      <p className="test">{window.location.pathname==='/'? 'Rakuten TV' : 'movie'}</p>
+    <div className="navBar">
+      <h2 className="navText">{window.location.pathname==='/'? 'Rakuten TV' : 'movie'}</h2>
     </div>
   );
 }
