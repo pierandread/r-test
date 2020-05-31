@@ -49,14 +49,7 @@
 }
 
 .button-trailer:hover, .button-trailer:active  {
-	background:black;
-}
-
-.text-button-trailer{
-  text-decoration: none;
-  color:black;
-}
-
-.button-trailer:hover > .text-button-trailer{
+  background:black;
   color: white;
 }
+
