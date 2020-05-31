@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import NavBar from './components/NavBar/NavBar';
 import Movies from './components/Movies/Movies';
 import MovieDetails from './components/MovieDetails/MovieDetails';
+import Trailer from './components/Trailer/Trailer';
 import regeneratorRuntime from "regenerator-runtime";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import './index.css';
@@ -18,6 +19,8 @@ function App (){
         component={Movies}/>
         <Route path="/movie/:movieId"
           component={MovieDetails}/>
+        <Route path="/trailer/:movieId"
+          component={Trailer}/>        
       </Router>
     </div>
   )

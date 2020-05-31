@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {getMovie, postTrailer} from '../../services/api-calls';
+import { Link } from "react-router-dom";
 import './movieDetails.css';
 import convertTime from '../../utilities/convertTime';
 
@@ -8,9 +9,8 @@ function MovieDetails () {
   useEffect(()=>{
     const path = window.location.pathname;
     const movieId = path.replace (/(\/movie\/)/, "");
-    console.log(movieId);
+    setMovieId(movieId);
     getMovie(movieId).then(res => setMovie(res));
-    postTrailer(movieId).then(res=>setTrailerUrl(res.data.stream_infos[0].url))
   }, [window.location.pathname])
 
   const [movie, setMovie] = useState(null);
@@ -20,8 +20,8 @@ function MovieDetails () {
   const [duration, setDuration] = useState('');
   const [genres, setGenres] = useState(null);
   const [backgroundImage, setBackgroundImage] = useState('');
-  const [trailer, setTrailerUrl] = useState('')
-
+  const [movieId, setMovieId] = useState('');
+ 
   if(movie && !title) {setTitle(movie.data.title)};
   if(movie && !plot) {setPlot(movie.data.short_plot)};
   if(movie && !year) {setYear(movie.data.year)};
@@ -51,7 +51,11 @@ function MovieDetails () {
           <div>
             <h3>Plot:</h3>
             <p>{plot}</p>
-            <video controls name="media"> <source src='https://prod-stpeter-pmd.verizon.cdn.rakuten.tv/6/3/f/63f5ee0d6b151facb20e7a2c5356132b-mc-0-94-0-0_SD_TRAILER_PAR_1_1/63f5ee0d6b151facb20e7a2c5356132b-mc-0-94-0-0_SD_TRAILER_PAR_1_1.mp4?zF_rguRDJWZ1SokfaAzJ622EJM2p7BSsmI4K8F6vpiwxrSxt198BUaGy6VF9fT2c1CvQHqFWz7uqvRyVhDqLLES7l_0hfNzWYZsPwWXzGVMBJ7z5XB60k8UB9oveyyZDMK4PJEPuatyStBns8ZFoxfwmC9TRt6ZRZWCc9Xqu7zgMCR4MRjUlPHSM_0UlF2pioT7Xc9vvKCVDFtpqdUl88BBH4aMttWM_xhc9Kkn9_tQeZL35vyX2yRcb92qVoqtgAeCxUOahvJQ=' type="video/mp4"/></video>
+            <button>
+              <Link to={"/trailer/" + movieId}>
+              Trailer
+              </Link>
+            </button>
           </div>      
         </div>
       </div>
