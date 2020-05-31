@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {postTrailer} from '../../services/api-calls';
+import './trailer.css'
 
 
 function Trailer(){
@@ -15,8 +16,8 @@ function Trailer(){
 
   if (trailerUrl) {
     return(
-      <div>
-        <video controls autoPlay> 
+      <div className="trailer-div">
+        <video controls autoPlay className="video-player"> 
           <source 
             src={trailerUrl} 
             type="video/mp4"/>

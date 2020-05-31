@@ -25,8 +25,8 @@ function Slider ({list}) {
       <div className='list' style={{"transform": `translateX(${movingList}px)`}}>
         {listData? listData.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>) : <p>Loading...</p>}
       </div>
-      {/* Math.floor(screenWidth/100*10) to consider margin div list-container + 10 to take out last margin right*/}
-      <button onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+10))) && setMovingList(movingList-280)}}>right</button>
+      {/* Math.floor(screenWidth/100*10) to consider margin div list-container + 30 to take out padding and margin right*/}
+      <button onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+30))) && setMovingList(movingList-280)}}>right</button>
     </div>
   )
 }
