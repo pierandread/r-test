@@ -24,7 +24,7 @@ function Slider ({list}) {
   const [listData, setListData] = useState(null);
 
   useEffect(() =>{
-    getList(list).then(list=> {console.log(list); setListData(list)});
+    getList(list).then(list=> {setListData(list)});
   },[])
 
   if (listData && ("errors" in listData)) {
@@ -34,7 +34,7 @@ function Slider ({list}) {
     </div>
     )
   };
-
+  
   if (listData && isScreenBiggerThanSlider(listData, screenWidth)) {
     return(
       <div className="slider-div">

@@ -20,6 +20,7 @@ function Trailer(){
       <div className="trailer-div">
         <video controls autoPlay className="video-player"> 
           <source 
+            data-testid="source-trailer"      
             src={trailerUrl} 
             type="video/mp4"/>
         </video>
