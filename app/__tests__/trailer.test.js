@@ -1,7 +1,9 @@
 import React from 'react';
 import { render } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import Trailer from '../components/Trailer/Trailer';
 import {postTrailer} from '../services/api-calls';
+
 
 jest.mock('../services/api-calls.js');
 const fakeApiRequest = Promise.resolve({"data": {
@@ -26,7 +28,16 @@ afterEach(() => {
   jest.clearAllMocks();
 });
 
-test('it should call getRecipes if Enter key is enter', () => {
-  const {getByLabelText, getByTestId} = render(<Trailer/>);
+test('it show loading and call the API', () => {
+  const { getByText } = render(<Trailer/>);
+  const loadingText = getByText('Loading...');
+  expect(loadingText).toBeInTheDocument()
+  expect(postTrailer).toHaveBeenCalledTimes(1);
+});
+
+test('it show loading and call the API', () => {
+  const { getByText } = render(<Trailer/>);
+  const loadingText = getByText('Loading...');
+  expect(loadingText).toBeInTheDocument()
   expect(postTrailer).toHaveBeenCalledTimes(1);
 });
