@@ -21,17 +21,23 @@ function Movies() {
 
       <h3>Estrenos imprescindibles en taquilla:</h3>
 
+        <Slider list={'estrenos-imprescindibles-en-taquilla'} />
+
       <h3>Estrenos espanoles:</h3>
+
+        <Slider list={'estrenos-espanoles'} />
 
       <h3>Si te perdiste:</h3>
 
+        <Slider list={'si-te-perdiste'} />
+
       <h3>Especial X-men:</h3>
 
-      
         <Slider list={'especial-x-men'} />
 
-
       <h3>Nuestras preferidas de la semana:</h3>
+
+        <Slider list={'nuestras-preferidas-de-la-semana'} />
 
     </div>
   );

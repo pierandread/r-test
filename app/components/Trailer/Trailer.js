@@ -27,8 +27,8 @@ function Trailer(){
   )};
 
   return (
-    <div>
-      <p>Loading</p>
+    <div className="trailer-div">
+      <p className="loading-text">Loading...</p>
     </div>
   )
 }

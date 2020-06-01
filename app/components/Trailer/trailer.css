@@ -13,3 +13,9 @@
   max-height: 60vh;
   border-radius: 5px;
 }
+
+.loading-text{
+  /* background-color: rgba(22, 19, 23, 0.9); */
+  margin-left: 5%;
+  color: white;
+}
