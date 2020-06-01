@@ -3,12 +3,20 @@ import {getList} from '../../services/api-calls';
 import Movie from '../Movie/Movie';
 import './slider.css'
 
+function isScreenBiggerThanSlider(arrayMovies, screenWidth){
+  const sliderSize = arrayMovies.data.contents.data.length * 280;
+  const margins = Math.floor(screenWidth/100*10);
+  const screenMinusSlider = screenWidth - margins - sliderSize;
+  if (screenMinusSlider>0) return true;
+  return false;
+}
 
 function Slider ({list}) {
 
   //states to manager left and rigth stopping points for slider
   const [movingList, setMovingList] = useState(0);
-  const [screenWidth, setScreenWidth] = useState((window.visualViewport.width || window.innerWidth)-10);
+  const [screenWidth, setScreenWidth] = useState((window.visualViewport.width || window.innerWidth)-15);
+
   window.addEventListener("resize", function() {
     setScreenWidth(window.visualViewport.width || window.innerWidth);
   });
@@ -21,13 +29,27 @@ function Slider ({list}) {
 
   if (listData && ("errors" in listData)) {
     return(
-    <div className="slider-div">
-      <p>ERROR</p>
+    <div>
+      <p>No movies for this category <span alt='sad-emoji'>😢</span></p>
     </div>
     )
   };
 
-  if (listData) {
+  if (listData && isScreenBiggerThanSlider(listData, screenWidth)) {
+    return(
+      <div className="slider-div">
+
+  
+        <div className='list' style={{"transform": `translateX(${movingList}px)`}}>
+          {listData.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>)}
+        </div>
+        
+      </div>
+      )
+    };
+
+
+  if (listData && !isScreenBiggerThanSlider(listData, screenWidth)) {
     return(
     <div className="slider-div">
 
