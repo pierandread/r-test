@@ -1,9 +1,12 @@
-import React, {useState, useEffect} from 'react';
-import Slider from '../Slider/Slider'
-import './movies.css'
+import React, {useContext} from 'react';
+import Slider from '../Slider/Slider';
+import MovieTitleContext from '../../reactContext/movieTitle';
+import './movies.css';
 
 function Movies() {
 
+  const {setMovieTitleContext}  = useContext(MovieTitleContext);
+  setMovieTitleContext('');
 
   return (
     <div className='list-container' id='list-container'>

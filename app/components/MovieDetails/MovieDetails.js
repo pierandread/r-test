@@ -1,8 +1,10 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {getMovie, postTrailer} from '../../services/api-calls';
 import { Link } from "react-router-dom";
 import './movieDetails.css';
 import convertTime from '../../utilities/convertTime';
+import MovieTitleContext from '../../reactContext/movieTitle';
+
 
 
 function MovieDetails () {
@@ -23,8 +25,10 @@ function MovieDetails () {
   const [backgroundImage, setBackgroundImage] = useState('');
   const [movieId, setMovieId] = useState('');
 
-  let settingDetails = false;
- 
+  const {setMovieTitleContext}  = useContext(MovieTitleContext);
+
+  let settingDetails = false; 
+
   if(movie && !settingDetails) {
     !title && setTitle(movie.data.title);
     !plot && setPlot(movie.data.short_plot);
@@ -38,6 +42,7 @@ function MovieDetails () {
     };
     !backgroundImage && setBackgroundImage(movie.data.images.snapshot);
     settingDetails = true;
+    setMovieTitleContext(movie.data.title)
   };
 
   if (movie && settingDetails) {
@@ -55,17 +60,23 @@ function MovieDetails () {
               <p><span className='bold'>Duration:</span> {convertTime(duration)}</p>
             </div>
             <div className='short-info'>
-              {genres && <p className='short-info'><span className='bold'>Genres:</span> {genres.map(((el, idx) => {if(idx===genres.length-1) return <span key={idx}> {el}. </span>; return <span key={idx}> {el}, </span>}))}</p>}
+              {genres && <p className='short-info'><span className='bold'>Genres:</span> {genres.map(((el, idx) => {
+                if(idx===genres.length-1) return <span key={idx}> {el}. </span>;
+                  return <span key={idx}> {el}, </span>
+                  }))}
+                </p>}
             </div>
           </div>
           <div>
             <h3>Plot:</h3>
             <p>{plot}</p>
-            <Link to={"/trailer/" + movieId} >
-              <button className='button-trailer'>
-                Play Trailer.  
-              </button>
-            </Link>
+            <div className="trailer-button-div">
+              <Link to={"/trailer/" + movieId} >
+                <button className='button-trailer'>
+                  Play Trailer.  
+                </button>
+              </Link>
+            </div>
           </div>      
         </div>
       </div>
@@ -74,7 +85,8 @@ function MovieDetails () {
 
   return(
     <div>
-      <p>loading..</p>
+      <p className='banner'>Loading..</p>
+      <p className='infos-text-movie'>Loading..</p>
     </div>
   )
 }

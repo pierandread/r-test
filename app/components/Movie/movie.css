@@ -1,3 +1,4 @@
+/* if changing properties of box, change slider onClick functions values too*/
 .box{
   width: 250px;
   display: inline-block;

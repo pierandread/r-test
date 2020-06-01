@@ -37,6 +37,11 @@
   font-weight: bold;
 }
 
+.trailer-button-div{
+  display: flex;
+  justify-content: flex-end;
+}
+
 .button-trailer {
 	background-color:white;
 	border-radius:5px;
