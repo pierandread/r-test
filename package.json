@@ -65,6 +65,9 @@
     },
     "setupFilesAfterEnv": [
       "<rootDir>/setupJest.js"
+    ],
+    "modulePathIgnorePatterns": [
+      "<rootDir>/cypress/"
     ]
   }
 }

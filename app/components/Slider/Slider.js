@@ -58,9 +58,9 @@ function Slider ({list}) {
         {listData.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>)}
       </div>
 
-      {/* onClick: Math.floor(screenWidth/100*10) to consider margin div list-container + 30 to take out padding and margin right*/}
+      {/* onClick: Math.floor(screenWidth/100*10) to consider margin div list-container + 40 to take out padding, margin right,scroolbar*/}
       <i className='fas fa-arrow-alt-circle-right button-right' style={{fontSize :'35px', left: (screenWidth -(Math.floor(screenWidth/100*10)+40))}} 
-      onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+30))) && setMovingList(movingList-280)}}
+      onClick={()=> {(-movingList<(((listData.data.contents.data.length)*280)-(screenWidth-(Math.floor(screenWidth/100*10))+40))) && setMovingList(movingList-280)}}
       ></i>
        
     </div>
