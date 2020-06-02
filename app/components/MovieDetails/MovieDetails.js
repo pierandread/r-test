@@ -44,7 +44,6 @@ function MovieDetails () {
   };
 
   if (movie && settingDetails) {
-    console.log("MOVIEID", movieId)
     return (
       <div>
         <div className='banner' style={{backgroundImage:`url(${backgroundImage})`}}>
