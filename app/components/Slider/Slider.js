@@ -31,7 +31,7 @@ function Slider ({list}) {
   if (listData==='error' || listData && typeof(listData)==="object" && ("errors" in listData)) {
     return(
     <div>
-      <p>No movies for this category <span alt='sad-emoji'>😢</span></p>
+      <p>Error loading data: No movies for this category <span alt='sad-emoji'>😢</span></p>
     </div>
     )
   };
