@@ -1,11 +1,9 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {getMovie, postTrailer} from '../../services/api-calls';
+import {getMovie} from '../../services/api-calls';
 import { Link } from "react-router-dom";
 import './movieDetails.css';
 import convertTime from '../../utilities/convertTime';
 import MovieTitleContext from '../../reactContext/movieTitle';
-
-
 
 function MovieDetails () {
 
@@ -46,6 +44,7 @@ function MovieDetails () {
   };
 
   if (movie && settingDetails) {
+    console.log("MOVIEID", movieId)
     return (
       <div>
         <div className='banner' style={{backgroundImage:`url(${backgroundImage})`}}>
@@ -71,9 +70,9 @@ function MovieDetails () {
             <h3>Plot:</h3>
             <p>{plot}</p>
             <div className="trailer-button-div">
-              <Link to={"/trailer/" + movieId} >
-                <button className='button-trailer'>
-                  Play Trailer.  
+              <Link to={`/trailer/`+ movieId} >
+                <button className='button-trailer' data-testId="trailer-button">
+                  Play Trailer.
                 </button>
               </Link>
             </div>

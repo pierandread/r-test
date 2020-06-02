@@ -25,10 +25,6 @@ const fakeApiRequest = Promise.resolve({
 });
 postTrailer.mockImplementation(() => fakeApiRequest);
 
-afterEach(() => {
-  jest.clearAllMocks();
-});
-
 test('it show loading and call the API', () => {
   const { getByText } = render(<Trailer/>);
   const loadingText = getByText('Loading...');

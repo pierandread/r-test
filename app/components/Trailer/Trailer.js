@@ -5,7 +5,7 @@ import './trailer.css'
 
 
 function Trailer(){
-
+  console.log(global.window.location.pathname)
   useEffect(()=>{
     const path = window.location.pathname;
     const movieId = path.replace (/(\/trailer\/)/, "");
