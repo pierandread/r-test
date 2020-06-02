@@ -9,7 +9,6 @@ function Trailer(){
   useEffect(()=>{
     const path = window.location.pathname;
     const movieId = path.replace (/(\/trailer\/)/, "");
-    console.log(movieId);
     postTrailer(movieId).then(res=>setTrailerUrl(res.data.stream_infos[0].url))
   }, [window.location.pathname])
 
