@@ -70,8 +70,8 @@ function MovieDetails () {
             <h3>Plot:</h3>
             <p>{plot}</p>
             <div className="trailer-button-div">
-              <Link to={`/trailer/`+ movieId} >
-                <button className='button-trailer' data-testId="trailer-button">
+              <Link to={"/trailer/" + movieId} >
+                <button className='button-trailer' data-testid="trailer-button">
                   Play Trailer.
                 </button>
               </Link>

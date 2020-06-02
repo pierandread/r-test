@@ -3,18 +3,12 @@ import { render, fireEvent } from '@testing-library/react';
 import MovieDetails from '../components/MovieDetails/MovieDetails';
 import { MemoryRouter, } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
-import { Link } from "react-router-dom";
-
 import movieMock from '../__mocks__/movieMock';
 import {getMovie} from '../services/api-calls';
 
 jest.mock('../services/api-calls.js');
 const fakeApiRequest = Promise.resolve(movieMock);
 getMovie.mockImplementation(() => fakeApiRequest);
-
-afterEach(() => {
-  jest.clearAllMocks();
-});
 
 test(("it should show the right information"), async () =>{
   const {getByText} = await render(<MemoryRouter><MovieDetails /></MemoryRouter>);

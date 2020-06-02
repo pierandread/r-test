@@ -9,7 +9,6 @@ function NavBar() {
 
   return (
     <div className="navBar">
-    {console.log(window.location.pathname)}
       <h2 className="navText">{movieTitleContext? movieTitleContext : 'Rakuten TV'}</h2>
     </div>
   );

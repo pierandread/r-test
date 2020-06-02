@@ -15,12 +15,9 @@ function App (){
   const value = { movieTitleContext, setMovieTitleContext };
 
   return(
-    // style for slidercss
     <div>
       <MovieTitleContext.Provider value={value}>
-
-
-        <NavBar />
+        <NavBar/>
         <Router>
           <Route exact path="/"
           component={Movies}/>
@@ -29,7 +26,6 @@ function App (){
           <Route path="/trailer/:movieId"
             component={Trailer}/>        
         </Router>
-
       </MovieTitleContext.Provider>
     </div>
   )
