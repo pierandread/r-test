@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import ReactDOM from 'react-dom';
 import regeneratorRuntime from "regenerator-runtime";
 import NavBar from './components/NavBar/NavBar';
-import Movies from './components/Movies/Movies';
+import MovieLists from './components/MovieLists/MovieLists';
 import MovieDetails from './components/MovieDetails/MovieDetails';
 import Trailer from './components/Trailer/Trailer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
@@ -22,7 +22,7 @@ function App (){
           <NavBar/>
           <Router>
             <Route exact path="/"
-            component={Movies}/>
+            component={MovieLists}/>
             <Route path="/movie/:movieId"
               component={MovieDetails}/>
             <Route path="/trailer/:movieId"
