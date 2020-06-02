@@ -27,23 +27,21 @@ function Slider ({list}) {
     getList(list).then(list=> {setListData(list)});
   },[])
 
-  if (listData && ("errors" in listData)) {
+
+  if (listData==='error' || listData && typeof(listData)==="object" && ("errors" in listData)) {
     return(
     <div>
       <p>No movies for this category <span alt='sad-emoji'>😢</span></p>
     </div>
     )
   };
-  
+
   if (listData && isScreenBiggerThanSlider(listData, screenWidth)) {
     return(
-      <div className="slider-div">
-
-  
+      <div className="slider-div">  
         <div className='list' style={{"transform": `translateX(${movingList}px)`}}>
           {listData.data.contents.data.map((movie,idx) => <Movie key={idx} movie={movie}/>)}
-        </div>
-        
+        </div>        
       </div>
       )
     };
