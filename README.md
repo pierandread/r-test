@@ -32,13 +32,23 @@
 
 * `npm run test:e2e` to open the cypress tests utility. If you had not run `npm start`, use `npm run test:e2e:start`.
 
+## Improvements/Known bugs/Work in progress
+
+* API calls with cors-anywhere to avoid cors blocks.
+* Slider with dynamic width.
+* Movie details page with information about the movies.
+* Trailer page.
+* Testing with jest and cypress. 
 
 ## Improvements/Known bugs/Work in progress
 
-* Improvement: The slider is written in pure Css and its depending by the width of the Movie container. Todo: link the different files to make use of the Css media queries to make height responsive (at current status only the width is).
-* Bug: `npm test` it's warning us that *An update to Component inside a test was not wrapped in act(...).* for all the components that are updating the state with UseEffect: to fix.
-* Improvement: errors mananement inside the single components.
+* Improvement: The slider is written in pure CSS and it's depending by the width of the Movie container. Todo: link the different files to make use of the CSS media queries to make height responsive (at current status only the width is).
+* Improvement: errors management inside the single components.
 * Improvement: possible improvement of the generic style to be more similar to the company website.
+* Fixing: warning in console when opening movieDetail components *Cannot update a component (`App`) while rendering a different component (`MovieDetails`).* caused by reactContext implementation (trying to setState of App-context from a child component).
+* Fixing: `npm test` it's warning us that *An update to Component inside a test was not wrapped in act(...).* for all the components that are updating the state with UseEffect.
+* Fixing: need to implement Effects with Cleanup to avoid memory leaks.
+
 
 ## Built with
 
