@@ -7,15 +7,15 @@
 
 **Homepage**
 
-![](./screenshot/homepage.png)
+![](./screenshots/homepage.png)
 
 **Movie details**
 
-![](./screenshot/singleMovie.png)
+![](./screenshots/singleMovie.png)
 
 **Trailer page**
 
-![](./screenshot/singleMovie.png)
+![](./screenshots/trailerPage.png)
 
 
 </div>
@@ -39,10 +39,6 @@
 * Bug: `npm test` it's warning us that *An update to Component inside a test was not wrapped in act(...).* for all the components that are updating the state with UseEffect: to fix.
 * Improvement: errors mananement inside the single components.
 * Improvement: possible improvement of the generic style to be more similar to the company website.
-
-## Extra thoughts and decision process
-
-Follow the [additional information](./Additional-information.md) file to explore more my decisional process and the structure of the application :). 
 
 ## Built with
 
