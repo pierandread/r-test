@@ -3,7 +3,7 @@ import { render, fireEvent } from '@testing-library/react';
 import MovieDetails from '../components/MovieDetails/MovieDetails';
 import { MemoryRouter, } from 'react-router-dom';
 import { BrowserRouter as Router } from "react-router-dom";
-import movieMock from '../__mocks__/movieMock';
+import movieMock from '../__mocks__/getMovieSuccessfullCallMock';
 import {getMovie} from '../services/api-calls';
 
 jest.mock('../services/api-calls.js');
@@ -24,7 +24,6 @@ test(("it should show the right information"), async () =>{
   expect(genres0).toBeInTheDocument();
   expect(genres1).toBeInTheDocument();
   expect(genres2).toBeInTheDocument();
-
 });
 
 test(("it should link to trailer url"), async () =>{

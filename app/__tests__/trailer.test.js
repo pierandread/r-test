@@ -32,7 +32,7 @@ test('it show loading and call the API', () => {
   expect(postTrailer).toHaveBeenCalledTimes(1);
 });
 
-test('it show the right videoUrl and call the API', async () => {
+test('it show the right videoUrl', async () => {
   const { getByTestId } = render(<Trailer/>);
   await postTrailer();
   const sourceTrailer = getByTestId('source-trailer');
