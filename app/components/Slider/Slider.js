@@ -15,10 +15,10 @@ function Slider ({list}) {
 
   //states to manager left and rigth stopping points for slider
   const [movingList, setMovingList] = useState(0);
-  const [screenWidth, setScreenWidth] = useState((window.visualViewport.width || window.innerWidth)-15);
+  const [screenWidth, setScreenWidth] = useState((window.innerWidth)-15);
 
   window.addEventListener("resize", function() {
-    setScreenWidth(window.visualViewport.width || window.innerWidth);
+    setScreenWidth(window.innerWidth);
   });
 
   const [listData, setListData] = useState(null);
