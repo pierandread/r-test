@@ -7,6 +7,7 @@ import MovieDetails from './components/MovieDetails/MovieDetails';
 import Trailer from './components/Trailer/Trailer';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import MovieTitleContext from './reactContext/movieTitle';
+import ErrorBoundary from './utilities/ErrorBoundary';
 import './index.css';
 
 function App (){
@@ -17,15 +18,17 @@ function App (){
   return(
     <div>
       <MovieTitleContext.Provider value={value}>
-        <NavBar/>
-        <Router>
-          <Route exact path="/"
-          component={Movies}/>
-          <Route path="/movie/:movieId"
-            component={MovieDetails}/>
-          <Route path="/trailer/:movieId"
-            component={Trailer}/>        
-        </Router>
+        <ErrorBoundary>
+          <NavBar/>
+          <Router>
+            <Route exact path="/"
+            component={Movies}/>
+            <Route path="/movie/:movieId"
+              component={MovieDetails}/>
+            <Route path="/trailer/:movieId"
+              component={Trailer}/>        
+          </Router>         
+        </ErrorBoundary>
       </MovieTitleContext.Provider>
     </div>
   )
