@@ -7,11 +7,23 @@ import MovieTitleContext from '../../reactContext/movieTitle';
 
 function MovieDetails () {
 
-  useEffect(()=>{
+  useEffect( () => {
     const path = window.location.pathname;
     const movieIdDisposable = path.replace (/(\/movie\/)/, "");
     setMovieId(movieIdDisposable);
-    getMovie(movieIdDisposable).then(res => setMovie(res));
+    getMovie(movieIdDisposable).then(res => {
+      setMovie(res);
+      setTitle(res.data.title);
+      setPlot(res.data.short_plot);
+      setYear(res.data.year);
+      setDuration(res.data.duration);
+      setBackgroundImage(res.data.images.snapshot);
+      setMovieTitleContext(res.data.title);
+      let genresArray=[]; 
+      let genresObj=res.data.genres; 
+      for (let genre of genresObj){genresArray.push(genre.name)}; 
+      setGenres(genresArray);
+    });
   }, [window.location.pathname])
 
   const [movie, setMovie] = useState(null);
@@ -22,28 +34,9 @@ function MovieDetails () {
   const [genres, setGenres] = useState(null);
   const [backgroundImage, setBackgroundImage] = useState('');
   const [movieId, setMovieId] = useState('');
-
   const {setMovieTitleContext}  = useContext(MovieTitleContext);
 
-  let settingDetails = false; 
-
-  if(movie && !settingDetails) {
-    !title && setTitle(movie.data.title);
-    !plot && setPlot(movie.data.short_plot);
-    !year && setYear(movie.data.year);
-    !duration && setDuration(movie.data.duration);
-    if(!genres) {
-      let genresArray=[]; 
-      let genresObj=movie.data.genres; 
-      for (let genre of genresObj){genresArray.push(genre.name)}; 
-      setGenres(genresArray)
-    };
-    !backgroundImage && setBackgroundImage(movie.data.images.snapshot);
-    settingDetails = true;
-    setMovieTitleContext(movie.data.title)
-  };
-
-  if (movie && settingDetails) {
+  if (movie) {
     return (
       <div>
         <div className='banner' style={{backgroundImage:`url(${backgroundImage})`}}>
